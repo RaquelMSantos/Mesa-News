@@ -38,6 +38,11 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.google.android.material:material:1.1.0-alpha10'
+
     implementation 'android.arch.navigation:navigation-fragment-ktx:1.0.0-alpha01'
     implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0-alpha01'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.2.1'
 }
