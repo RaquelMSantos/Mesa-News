@@ -2,4 +2,13 @@
     <string name="app_name">Mesa News</string>
     <string name="title_menu_feed">FEED</string>
     <string name="title_menu_filter">FILTER</string>
+    <string name="title_login">Mesa News</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="signin">signin</string>
+    <string name="signup">signup</string>
+
+    <string name="facebook_app_id">1263917790673448</string>
+    <string name="fb_login_protocol_scheme">fb1263917790673448</string>
+
 </resources>

@@ -1,5 +1,6 @@
-package br.com.rmso.mesanews
+package br.com.rmso.mesanews.network
 
+import br.com.rmso.mesanews.Constants
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

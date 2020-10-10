@@ -1,5 +1,8 @@
-package br.com.rmso.mesanews
+package br.com.rmso.mesanews.network
 
+import br.com.rmso.mesanews.Constants
+import br.com.rmso.mesanews.login.LoginRequest
+import br.com.rmso.mesanews.login.LoginResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.FormUrlEncoded
