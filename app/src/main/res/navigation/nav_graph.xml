@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/nav_feed">
+
+    <fragment
+        android:id="@+id/nav_feed"
+        android:name="br.com.rmso.mesanews.feed.FeedFragment"
+        android:label="@string/title_menu_feed"
+        tools:layout="@layout/feed_fragment"/>
+
+    <fragment
+        android:id="@+id/nav_filter"
+        android:name="br.com.rmso.mesanews.filter.FilterFragment"
+        android:label="@string/title_menu_filter"
+        tools:layout="@layout/filter_fragment"/>
+
+</navigation>

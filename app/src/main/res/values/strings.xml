@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Mesa News</string>
+    <string name="title_menu_feed">FEED</string>
+    <string name="title_menu_filter">FILTER</string>
+</resources>

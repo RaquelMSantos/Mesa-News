@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/nav_feed"
+        android:enabled="true"
+        android:icon="@drawable/ic_feed"
+        android:title="@string/title_menu_feed"/>
+
+    <item
+        android:id="@+id/nav_filter"
+        android:enabled="true"
+        android:icon="@drawable/ic_filter"
+        android:title="@string/title_menu_filter"/>
+</menu>
