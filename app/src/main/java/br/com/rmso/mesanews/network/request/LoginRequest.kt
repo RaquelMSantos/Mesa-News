@@ -1,4 +1,4 @@
-package br.com.rmso.mesanews.login
+package br.com.rmso.mesanews.network.request
 
 data class LoginRequest (
     var email: String,

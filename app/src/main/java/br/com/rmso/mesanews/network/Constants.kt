@@ -1,4 +1,4 @@
-package br.com.rmso.mesanews
+package br.com.rmso.mesanews.network
 
 object Constants {
     const val BASE_URL = "https://mesa-news-api.herokuapp.com"

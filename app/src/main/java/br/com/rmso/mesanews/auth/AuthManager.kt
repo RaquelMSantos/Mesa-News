@@ -1,4 +1,4 @@
-package br.com.rmso.mesanews
+package br.com.rmso.mesanews.auth
 
 import android.content.Context
 import android.content.SharedPreferences
