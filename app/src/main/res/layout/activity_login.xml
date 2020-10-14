@@ -54,8 +54,8 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="30dp"
+        android:background="@color/colorPrimaryLight"
         android:textColor="@color/colorAccent"
-        android:background="@color/colorPrimary"
         app:layout_constraintStart_toStartOf="@id/et_email"
         app:layout_constraintTop_toBottomOf="@id/tv_signup"
         app:layout_constraintEnd_toEndOf="@id/et_email"/>

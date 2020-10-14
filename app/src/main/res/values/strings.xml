@@ -10,5 +10,9 @@
 
     <string name="facebook_app_id">1263917790673448</string>
     <string name="fb_login_protocol_scheme">fb1263917790673448</string>
+    <string name="name">Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="birthday">Birthday (xx/xx/xxxx)</string>
+    <string name="register">Register</string>
 
 </resources>
