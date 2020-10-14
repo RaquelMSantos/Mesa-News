@@ -9,8 +9,8 @@ import br.com.rmso.mesanews.network.ApiService
 import br.com.rmso.mesanews.network.NewsApi
 import br.com.rmso.mesanews.network.request.LoginRequest
 import br.com.rmso.mesanews.ui.register.RegisterActivity
-import br.com.rmso.mesanews.repository.login.LoginDataSource
-import br.com.rmso.mesanews.repository.login.LoginUseCase
+import br.com.rmso.mesanews.repository.remote.login.LoginDataSource
+import br.com.rmso.mesanews.repository.remote.login.LoginUseCase
 import com.facebook.login.widget.LoginButton
 import com.facebook.FacebookSdk;
 import kotlinx.android.synthetic.main.activity_login.*

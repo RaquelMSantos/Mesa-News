@@ -1,4 +1,4 @@
-package br.com.rmso.mesanews.repository.register
+package br.com.rmso.mesanews.repository.remote.login.register
 
 import br.com.rmso.mesanews.auth.AuthManager
 import br.com.rmso.mesanews.network.NewsApi

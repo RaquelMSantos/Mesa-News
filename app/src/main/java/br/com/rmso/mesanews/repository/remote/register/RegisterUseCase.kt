@@ -1,8 +1,6 @@
-package br.com.rmso.mesanews.repository.register
+package br.com.rmso.mesanews.repository.remote.login.register
 
 import br.com.rmso.mesanews.network.request.RegisterRequest
-import br.com.rmso.mesanews.network.response.AuthResponse
-import br.com.rmso.mesanews.repository.register.RegisterRepository
 
 class RegisterUseCase(private val registerRepository: RegisterRepository) {
     fun executeSignup(registerRequest: RegisterRequest) {

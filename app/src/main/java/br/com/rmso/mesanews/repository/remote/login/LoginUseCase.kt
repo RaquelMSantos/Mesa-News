@@ -1,8 +1,6 @@
-package br.com.rmso.mesanews.repository.login
+package br.com.rmso.mesanews.repository.remote.login
 
 import br.com.rmso.mesanews.network.request.LoginRequest
-import br.com.rmso.mesanews.network.response.AuthResponse
-import br.com.rmso.mesanews.repository.login.LoginRepository
 
 class LoginUseCase(private val loginRepository: LoginRepository) {
     fun executeSignin(loginRequest: LoginRequest) {

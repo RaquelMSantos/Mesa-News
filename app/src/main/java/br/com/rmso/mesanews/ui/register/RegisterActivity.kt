@@ -8,8 +8,8 @@ import br.com.rmso.mesanews.R
 import br.com.rmso.mesanews.network.ApiService
 import br.com.rmso.mesanews.network.NewsApi
 import br.com.rmso.mesanews.network.request.RegisterRequest
-import br.com.rmso.mesanews.repository.register.RegisterDataSource
-import br.com.rmso.mesanews.repository.register.RegisterUseCase
+import br.com.rmso.mesanews.repository.remote.login.register.RegisterDataSource
+import br.com.rmso.mesanews.repository.remote.login.register.RegisterUseCase
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {

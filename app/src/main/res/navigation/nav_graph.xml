@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/nav_feed"
-        android:name="br.com.rmso.mesanews.feed.FeedFragment"
+        android:name="br.com.rmso.mesanews.ui.feed.FeedFragment"
         android:label="@string/title_menu_feed"
         tools:layout="@layout/feed_fragment"/>
 
     <fragment
         android:id="@+id/nav_filter"
-        android:name="br.com.rmso.mesanews.filter.FilterFragment"
+        android:name="br.com.rmso.mesanews.ui.filter.FilterFragment"
         android:label="@string/title_menu_filter"
         tools:layout="@layout/filter_fragment"/>
 

@@ -1,4 +1,4 @@
-package br.com.rmso.mesanews.feed
+package br.com.rmso.mesanews.ui.feed
 
 import androidx.lifecycle.ViewModel
 

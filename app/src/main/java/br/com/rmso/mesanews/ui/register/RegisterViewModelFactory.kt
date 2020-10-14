@@ -2,7 +2,7 @@ package br.com.rmso.mesanews.ui.register
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import br.com.rmso.mesanews.repository.register.RegisterUseCase
+import br.com.rmso.mesanews.repository.remote.login.register.RegisterUseCase
 import java.lang.IllegalArgumentException
 
 class RegisterViewModelFactory

@@ -1,7 +1,6 @@
-package br.com.rmso.mesanews.repository.login
+package br.com.rmso.mesanews.repository.remote.login
 
 import br.com.rmso.mesanews.network.request.LoginRequest
-import br.com.rmso.mesanews.network.response.AuthResponse
 
 interface LoginRepository {
     fun signin(loginRequest: LoginRequest)
