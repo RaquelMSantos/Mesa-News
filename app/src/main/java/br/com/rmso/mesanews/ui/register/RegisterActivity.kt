@@ -1,12 +1,21 @@
-package br.com.rmso.mesanews.register
+package br.com.rmso.mesanews.ui.register
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProviders
 import br.com.rmso.mesanews.R
+import br.com.rmso.mesanews.network.ApiService
+import br.com.rmso.mesanews.network.NewsApi
+import br.com.rmso.mesanews.network.request.RegisterRequest
+import br.com.rmso.mesanews.repository.register.RegisterDataSource
+import br.com.rmso.mesanews.repository.register.RegisterUseCase
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
+
+    private lateinit var viewModel: RegisterViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -37,7 +46,30 @@ class RegisterActivity : AppCompatActivity() {
             }
             else -> {
                 Toast.makeText(this, "Confirm!", Toast.LENGTH_LONG).show()
+                initViewModel(
+                    et_name.text.toString(),
+                    et_email.text.toString(),
+                    et_password.text.toString()
+                )
             }
         }
+    }
+
+    private fun initViewModel(
+        name: String,
+        email: String,
+        password: String
+    ) {
+        val viewModelFactory = RegisterViewModelFactory(
+            RegisterUseCase(
+                RegisterDataSource(
+                    ApiService.createService(NewsApi::class.java)
+                )
+            )
+        )
+
+        viewModel = ViewModelProviders.of(this, viewModelFactory)
+            .get(RegisterViewModel::class.java)
+        viewModel.fetchRegister(RegisterRequest(name = name, email = email, password = password))
     }
 }

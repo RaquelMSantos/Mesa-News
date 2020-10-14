@@ -1,5 +1,5 @@
 package br.com.rmso.mesanews.network.response
 
-data class LoginResponse (
+data class AuthResponse (
     var token: String
 )

@@ -1,4 +1,4 @@
-package br.com.rmso.mesanews.login
+package br.com.rmso.mesanews.ui.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,9 +8,9 @@ import br.com.rmso.mesanews.R
 import br.com.rmso.mesanews.network.ApiService
 import br.com.rmso.mesanews.network.NewsApi
 import br.com.rmso.mesanews.network.request.LoginRequest
-import br.com.rmso.mesanews.register.RegisterActivity
-import br.com.rmso.mesanews.repository.LoginDataSource
-import br.com.rmso.mesanews.repository.LoginUseCase
+import br.com.rmso.mesanews.ui.register.RegisterActivity
+import br.com.rmso.mesanews.repository.login.LoginDataSource
+import br.com.rmso.mesanews.repository.login.LoginUseCase
 import com.facebook.login.widget.LoginButton
 import com.facebook.FacebookSdk;
 import kotlinx.android.synthetic.main.activity_login.*
@@ -57,7 +57,12 @@ class LoginActivity : AppCompatActivity() {
 
     private fun initViewModel(email: String, password: String) {
         val viewModelFactory = LoginViewModelFactory(
-            LoginUseCase(LoginDataSource(ApiService.createService(this, NewsApi::class.java))))
+            LoginUseCase(
+                LoginDataSource(
+                    ApiService.createService(NewsApi::class.java)
+                )
+            )
+        )
 
         viewModel = ViewModelProviders.of(this, viewModelFactory)
             .get(LoginViewModel::class.java)

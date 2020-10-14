@@ -1,8 +1,8 @@
-package br.com.rmso.mesanews.login
+package br.com.rmso.mesanews.ui.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import br.com.rmso.mesanews.repository.LoginUseCase
+import br.com.rmso.mesanews.repository.login.LoginUseCase
 import java.lang.IllegalArgumentException
 
 class LoginViewModelFactory
