@@ -14,5 +14,7 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="birthday">Birthday (xx/xx/xxxx)</string>
     <string name="register">Register</string>
+    <string name="highlights">Highlights</string>
+    <string name="news">News</string>
 
 </resources>

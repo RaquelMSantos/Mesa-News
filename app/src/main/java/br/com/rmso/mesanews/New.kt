@@ -1,7 +1,6 @@
 package br.com.rmso.mesanews
 
 import androidx.room.Entity
-import androidx.room.PrimaryKey
 
 @Entity(tableName = "new_table")
 data class New (

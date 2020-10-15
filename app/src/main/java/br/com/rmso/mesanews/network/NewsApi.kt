@@ -1,9 +1,10 @@
 package br.com.rmso.mesanews.network
 
-import br.com.rmso.mesanews.New
 import br.com.rmso.mesanews.network.request.LoginRequest
 import br.com.rmso.mesanews.network.request.RegisterRequest
 import br.com.rmso.mesanews.network.response.AuthResponse
+import br.com.rmso.mesanews.network.response.HighlightsResponse
+import br.com.rmso.mesanews.network.response.NewResponse
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -17,8 +18,8 @@ interface NewsApi {
     @GET(Constants.NEWS_URL)
     fun getNews(@Header("Authorization") token: String,
                 @Query("current_page") currentPage: Int,
-                @Query("per_page") perPage: Int): Call<List<New>>
+                @Query("per_page") perPage: Int): Call<NewResponse>
 
     @GET(Constants.HIGHLIGHTS_URL)
-    fun getHighlights(@Header("Authorization") token: String): Call<List<New>>
+    fun getHighlights(@Header("Authorization") token: String): Call<HighlightsResponse>
 }
