@@ -40,7 +40,7 @@ class FeedViewModel(mainDispacher: CoroutineDispatcher,
         }
     }
 
-        fun getNews(authManager: String, currentPage: Int, perPage: Int):Job {
+    fun getNews(authManager: String, currentPage: Int, perPage: Int):Job {
         return uiScope.launch {
             while (isActive) {
                 newLiveData.value = LiveDataResult.loading()
