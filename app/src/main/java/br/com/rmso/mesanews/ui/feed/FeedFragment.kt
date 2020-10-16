@@ -39,7 +39,6 @@ class FeedFragment : Fragment(), onClickListener {
     private lateinit var token: String
     private var currentPage = 1
     private var perPage = 20
-    private lateinit var filterViewModel: FilterViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -139,7 +138,8 @@ class FeedFragment : Fragment(), onClickListener {
 
     override fun onClickCard(position: Int, list: ArrayList<New>) {
         val intent = Intent(this.context, DetailsActivity::class.java)
-        val newActual = newList[position]
+
+        val newActual = list[position]
 
         intent.putExtra("title", newActual.title)
         intent.putExtra("description", newActual.description)
@@ -160,16 +160,4 @@ class FeedFragment : Fragment(), onClickListener {
         startActivity(shareIntent)
     }
 
-    override fun onClickFavorites(position: Int, newList: ArrayList<New>) {
-//        val newFavorite = newList[position]
-//
-//        if (btn_favorite.text == resources.getText(R.string.btn_favor)){
-//            filterViewModel.insert(newFavorite)
-//            btn_favorite.text = resources.getText(R.string.btn_disfavor)
-//        }else {
-//            filterViewModel.delete(newFavorite.title)
-//            btn_favorite.text = resources.getText(R.string.btn_favor)
-//        }
-
-    }
 }

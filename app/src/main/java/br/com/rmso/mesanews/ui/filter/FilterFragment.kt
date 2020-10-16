@@ -15,10 +15,7 @@ import br.com.rmso.mesanews.model.New
 import br.com.rmso.mesanews.ui.DetailsActivity
 import br.com.rmso.mesanews.ui.NewAdapter
 import br.com.rmso.mesanews.utils.onClickListener
-import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.filter_fragment.*
-import kotlinx.android.synthetic.main.item_new.*
-import kotlinx.android.synthetic.main.item_new.btn_favorite
 
 class FilterFragment : Fragment(), onClickListener {
 
@@ -30,7 +27,6 @@ class FilterFragment : Fragment(), onClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        initViewModel()
         return inflater.inflate(R.layout.filter_fragment, container, false)
     }
 
@@ -40,11 +36,17 @@ class FilterFragment : Fragment(), onClickListener {
 
         filterViewModel.allNews.observe(viewLifecycleOwner, Observer {news ->
             loadRecyclerView()
+            newList.clear()
             news?.let {
                 newList.addAll(it)
                 newAdapter?.setNews(newList)
             }
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        initViewModel()
     }
 
     private fun loadRecyclerView() {
@@ -53,9 +55,9 @@ class FilterFragment : Fragment(), onClickListener {
         rv_favorites.adapter = newAdapter
     }
 
-    override fun onClickCard(position: Int, newList: ArrayList<New>) {
+    override fun onClickCard(position: Int, list: ArrayList<New>) {
         val intent = Intent(this.context, DetailsActivity::class.java)
-        val newActual = newList[position]
+        val newActual = list[position]
 
         intent.putExtra("title", newActual.title)
         intent.putExtra("description", newActual.description)
@@ -74,17 +76,6 @@ class FilterFragment : Fragment(), onClickListener {
         }
         val shareIntent = Intent.createChooser(sendIntent, null)
         startActivity(shareIntent)
-    }
-
-    override fun onClickFavorites(position: Int, newList: ArrayList<New>) {
-        val newFavorite = newList[position]
-        if (btn_favorite.text == resources.getText(R.string.btn_favor)){
-            filterViewModel.insert(newFavorite)
-            btn_favorite.text = resources.getText(R.string.btn_disfavor)
-        }else {
-            filterViewModel.delete(newFavorite.title)
-            btn_favorite.text = resources.getText(R.string.btn_favor)
-        }
     }
 
 }

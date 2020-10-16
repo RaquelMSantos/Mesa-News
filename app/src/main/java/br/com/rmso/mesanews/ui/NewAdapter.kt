@@ -26,10 +26,6 @@ class NewAdapter (private var newList: ArrayList<New>, val onClickListener: onCl
             onClickListener.onClickShare(position, newList)
         }
 
-        holder.itemView.btn_favorite.setOnClickListener {
-            onClickListener.onClickFavorites(position, newList)
-        }
-
         holder.itemView.setOnClickListener{
             onClickListener.onClickCard(position, newList)
         }

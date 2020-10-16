@@ -19,5 +19,6 @@
 
     <string name="btn_favor">add fav</string>
     <string name="btn_disfavor">remove fav</string>
+    <string name="favorites">Favorites</string>
 
 </resources>

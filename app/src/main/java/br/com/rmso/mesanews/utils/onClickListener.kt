@@ -12,9 +12,4 @@ interface onClickListener {
         position: Int,
         newList: ArrayList<New>
     )
-
-    fun onClickFavorites(
-        position: Int,
-        newList: ArrayList<New>
-    )
 }
