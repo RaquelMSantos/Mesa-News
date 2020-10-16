@@ -3,12 +3,13 @@ package br.com.rmso.mesanews.ui
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import br.com.rmso.mesanews.New
+import br.com.rmso.mesanews.model.New
 import br.com.rmso.mesanews.R
+import br.com.rmso.mesanews.utils.onClickListener
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_new.view.*
 
-class NewAdapter (private var newList: ArrayList<New>): RecyclerView.Adapter<NewAdapter.ViewHolder>() {
+class NewAdapter (private var newList: ArrayList<New>, val onClickListener: onClickListener): RecyclerView.Adapter<NewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -20,6 +21,14 @@ class NewAdapter (private var newList: ArrayList<New>): RecyclerView.Adapter<New
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val new = newList[position]
         holder.bind(new)
+
+        holder.itemView.btn_share.setOnClickListener {
+            onClickListener.onClickShare(position, newList)
+        }
+
+        holder.itemView.setOnClickListener{
+            onClickListener.onClickCard(position, newList)
+        }
     }
 
     class ViewHolder(inflater: LayoutInflater, parent: ViewGroup):

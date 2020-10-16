@@ -1,4 +1,4 @@
-package br.com.rmso.mesanews
+package br.com.rmso.mesanews.model
 
 import androidx.room.Entity
 

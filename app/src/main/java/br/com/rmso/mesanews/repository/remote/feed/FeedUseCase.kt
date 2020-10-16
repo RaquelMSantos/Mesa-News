@@ -1,7 +1,7 @@
 package br.com.rmso.mesanews.repository.remote.feed
 
-import br.com.rmso.mesanews.New
-import br.com.rmso.mesanews.Pagination
+import br.com.rmso.mesanews.model.New
+import br.com.rmso.mesanews.model.Pagination
 
 class FeedUseCase(private val feedRepository: FeedRepository) {
     suspend fun fetchNews(authManager: String, currentPage: Int, perPage: Int): MutableList<New> {

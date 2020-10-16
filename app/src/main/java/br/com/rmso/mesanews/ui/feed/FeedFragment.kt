@@ -1,32 +1,33 @@
 package br.com.rmso.mesanews.ui.feed
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import br.com.rmso.mesanews.LiveDataResult
-import br.com.rmso.mesanews.New
+import br.com.rmso.mesanews.utils.LiveDataResult
+import br.com.rmso.mesanews.model.New
 import br.com.rmso.mesanews.R
 import br.com.rmso.mesanews.network.ApiService
 import br.com.rmso.mesanews.network.NewsApi
 import br.com.rmso.mesanews.repository.remote.feed.FeedDataSource
 import br.com.rmso.mesanews.repository.remote.feed.FeedUseCase
+import br.com.rmso.mesanews.ui.DetailsActivity
 import br.com.rmso.mesanews.ui.MainActivity
 import br.com.rmso.mesanews.ui.NewAdapter
+import br.com.rmso.mesanews.utils.onClickListener
 import kotlinx.android.synthetic.main.feed_fragment.*
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.NonCancellable.isActive
-import kotlinx.coroutines.delay
 
 
-class FeedFragment : Fragment() {
+class FeedFragment : Fragment(), onClickListener {
 
     private var newAdapter: NewAdapter? = null
     private var highlightsAdapter: NewAdapter? = null
@@ -60,11 +61,11 @@ class FeedFragment : Fragment() {
                 LiveDataResult.STATUS.SUCCESS -> {
                     highlightsList.addAll(it.data as ArrayList<New>)
                     loadRecyclerView()
-                    visibilityView(false)
+                    visibilityView(false, progress_bar_highlights)
                 }
 
                 LiveDataResult.STATUS.LOADING -> {
-                    visibilityView(true)
+                    visibilityView(true, progress_bar_highlights)
                 }
             }
         })
@@ -80,22 +81,22 @@ class FeedFragment : Fragment() {
                 LiveDataResult.STATUS.SUCCESS -> {
                     loadRecyclerView()
                     newList.addAll(it.data as ArrayList<New>)
-                    visibilityView(false)
+                    visibilityView(false, progress_bar_news)
                 }
 
                 LiveDataResult.STATUS.LOADING -> {
-                    visibilityView(true)
+                    visibilityView(true, progress_bar_news)
                 }
             }
         })
     }
 
     private fun loadRecyclerView() {
-        highlightsAdapter = NewAdapter(highlightsList)
+        highlightsAdapter = NewAdapter(highlightsList, this)
         rv_highlights.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
         rv_highlights.adapter = highlightsAdapter
 
-        newAdapter = NewAdapter(newList)
+        newAdapter = NewAdapter(newList, this)
         rv_news.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         rv_news.adapter = newAdapter
 
@@ -115,11 +116,14 @@ class FeedFragment : Fragment() {
         viewModel.getNews(token, currentPage, perPage)
     }
 
-    private fun visibilityView(status: Boolean) {
+    private fun visibilityView(
+        status: Boolean,
+        progressBar: ProgressBar
+    ) {
         if(status) {
-            progress_bar_feed.visibility = View.VISIBLE
+            progressBar.visibility = View.VISIBLE
         }else{
-            progress_bar_feed.visibility = View.GONE
+            progressBar.visibility = View.GONE
         }
     }
 
@@ -127,5 +131,23 @@ class FeedFragment : Fragment() {
         super.onDestroy()
         viewModel.getHighlights(token).cancel()
         viewModel.getNews(token, currentPage, perPage).cancel()
+    }
+
+    override fun onClickCard(position: Int, list: ArrayList<New>) {
+        val intent = Intent(this.context, DetailsActivity::class.java)
+
+        intent.putExtra("url", list[position].url)
+        startActivity(intent)
+    }
+
+    override fun onClickShare(position: Int, newList: ArrayList<New>) {
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, newList[position].url)
+            type = "text/plain"
+            putExtra(Intent.EXTRA_TITLE, newList[position].title)
+        }
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
     }
 }

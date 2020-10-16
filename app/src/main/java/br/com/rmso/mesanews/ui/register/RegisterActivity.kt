@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import br.com.rmso.mesanews.LiveDataResult
+import br.com.rmso.mesanews.utils.LiveDataResult
 import br.com.rmso.mesanews.R
 import br.com.rmso.mesanews.auth.AuthManager
 import br.com.rmso.mesanews.network.ApiService
@@ -16,7 +16,6 @@ import br.com.rmso.mesanews.network.request.RegisterRequest
 import br.com.rmso.mesanews.repository.remote.login.register.RegisterDataSource
 import br.com.rmso.mesanews.repository.remote.login.register.RegisterUseCase
 import br.com.rmso.mesanews.ui.MainActivity
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_register.et_email
 import kotlinx.android.synthetic.main.activity_register.et_password

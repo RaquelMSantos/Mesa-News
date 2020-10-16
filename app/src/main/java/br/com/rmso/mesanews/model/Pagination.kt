@@ -1,4 +1,4 @@
-package br.com.rmso.mesanews
+package br.com.rmso.mesanews.model
 
 data class Pagination (
     val current_page: Int,

@@ -7,7 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import br.com.rmso.mesanews.LiveDataResult
+import br.com.rmso.mesanews.utils.LiveDataResult
 import br.com.rmso.mesanews.R
 import br.com.rmso.mesanews.auth.AuthManager
 import br.com.rmso.mesanews.network.ApiService

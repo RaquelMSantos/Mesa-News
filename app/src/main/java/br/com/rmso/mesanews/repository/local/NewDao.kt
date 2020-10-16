@@ -2,7 +2,7 @@ package br.com.rmso.mesanews.repository.local
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import br.com.rmso.mesanews.New
+import br.com.rmso.mesanews.model.New
 
 @Dao
 interface NewDao {

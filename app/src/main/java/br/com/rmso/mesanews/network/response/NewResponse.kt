@@ -1,7 +1,7 @@
 package br.com.rmso.mesanews.network.response
 
-import br.com.rmso.mesanews.New
-import br.com.rmso.mesanews.Pagination
+import br.com.rmso.mesanews.model.New
+import br.com.rmso.mesanews.model.Pagination
 import com.google.gson.annotations.SerializedName
 
 data class NewResponse (

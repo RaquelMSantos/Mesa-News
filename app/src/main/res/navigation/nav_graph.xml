@@ -9,12 +9,25 @@
         android:id="@+id/nav_feed"
         android:name="br.com.rmso.mesanews.ui.feed.FeedFragment"
         android:label="@string/title_menu_feed"
-        tools:layout="@layout/feed_fragment"/>
+        tools:layout="@layout/feed_fragment">
+        <action
+            android:id="@+id/action_new_to_detailsActivity"
+            app:destination="@+id/detailsActivity"/>
+        <argument
+            android:name="data"
+            app:argType="string"/>
+    </fragment>
 
     <fragment
         android:id="@+id/nav_filter"
         android:name="br.com.rmso.mesanews.ui.filter.FilterFragment"
         android:label="@string/title_menu_filter"
         tools:layout="@layout/filter_fragment"/>
+
+    <activity
+        android:id="@+id/detailsActivity"
+        android:name="br.com.rmso.mesanews.ui.DetailsActivity"
+        android:label="activity_details"
+        tools:layout="@layout/activity_details"/>
 
 </navigation>

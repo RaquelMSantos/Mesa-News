@@ -2,9 +2,9 @@ package br.com.rmso.mesanews.ui.feed
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import br.com.rmso.mesanews.LiveDataResult
-import br.com.rmso.mesanews.New
-import br.com.rmso.mesanews.Pagination
+import br.com.rmso.mesanews.utils.LiveDataResult
+import br.com.rmso.mesanews.model.New
+import br.com.rmso.mesanews.model.Pagination
 import br.com.rmso.mesanews.repository.remote.feed.FeedUseCase
 import kotlinx.coroutines.*
 
