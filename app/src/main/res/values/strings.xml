@@ -17,4 +17,7 @@
     <string name="highlights">Highlights</string>
     <string name="news">News</string>
 
+    <string name="btn_favor">add fav</string>
+    <string name="btn_disfavor">remove fav</string>
+
 </resources>

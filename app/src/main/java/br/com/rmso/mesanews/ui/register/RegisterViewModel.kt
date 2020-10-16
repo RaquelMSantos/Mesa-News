@@ -43,7 +43,7 @@ class RegisterViewModel (mainDispacher: CoroutineDispatcher,
         authManager: AuthManager
     ): String {
         return ioScope.async {
-            return@async executeSignup(registerRequest, authManager)
+            return@async registerUseCase.executeSignup(registerRequest, authManager)
         }.await()
     }
 }

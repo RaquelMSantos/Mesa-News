@@ -1,9 +1,12 @@
 package br.com.rmso.mesanews.model
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity(tableName = "new_table")
 data class New (
+    @PrimaryKey
+    var id:Long?,
     var title: String,
     var description: String,
     var content: String,

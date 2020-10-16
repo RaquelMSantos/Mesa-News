@@ -22,8 +22,10 @@ import br.com.rmso.mesanews.repository.remote.feed.FeedUseCase
 import br.com.rmso.mesanews.ui.DetailsActivity
 import br.com.rmso.mesanews.ui.MainActivity
 import br.com.rmso.mesanews.ui.NewAdapter
+import br.com.rmso.mesanews.ui.filter.FilterViewModel
 import br.com.rmso.mesanews.utils.onClickListener
 import kotlinx.android.synthetic.main.feed_fragment.*
+import kotlinx.android.synthetic.main.item_new.btn_favorite
 import kotlinx.coroutines.Dispatchers
 
 
@@ -37,6 +39,7 @@ class FeedFragment : Fragment(), onClickListener {
     private lateinit var token: String
     private var currentPage = 1
     private var perPage = 20
+    private lateinit var filterViewModel: FilterViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,6 +50,7 @@ class FeedFragment : Fragment(), onClickListener {
         initViewModel()
         observerViewModelHighlight()
         observerViewModelNew()
+
 
         return inflater.inflate(R.layout.feed_fragment, container, false)
     }
@@ -135,8 +139,13 @@ class FeedFragment : Fragment(), onClickListener {
 
     override fun onClickCard(position: Int, list: ArrayList<New>) {
         val intent = Intent(this.context, DetailsActivity::class.java)
+        val newActual = newList[position]
 
-        intent.putExtra("url", list[position].url)
+        intent.putExtra("title", newActual.title)
+        intent.putExtra("description", newActual.description)
+        intent.putExtra("url", newActual.url)
+        intent.putExtra("image_url", newActual.image_url)
+
         startActivity(intent)
     }
 
@@ -149,5 +158,18 @@ class FeedFragment : Fragment(), onClickListener {
         }
         val shareIntent = Intent.createChooser(sendIntent, null)
         startActivity(shareIntent)
+    }
+
+    override fun onClickFavorites(position: Int, newList: ArrayList<New>) {
+//        val newFavorite = newList[position]
+//
+//        if (btn_favorite.text == resources.getText(R.string.btn_favor)){
+//            filterViewModel.insert(newFavorite)
+//            btn_favorite.text = resources.getText(R.string.btn_disfavor)
+//        }else {
+//            filterViewModel.delete(newFavorite.title)
+//            btn_favorite.text = resources.getText(R.string.btn_favor)
+//        }
+
     }
 }

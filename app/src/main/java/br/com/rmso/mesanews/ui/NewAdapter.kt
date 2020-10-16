@@ -26,6 +26,10 @@ class NewAdapter (private var newList: ArrayList<New>, val onClickListener: onCl
             onClickListener.onClickShare(position, newList)
         }
 
+        holder.itemView.btn_favorite.setOnClickListener {
+            onClickListener.onClickFavorites(position, newList)
+        }
+
         holder.itemView.setOnClickListener{
             onClickListener.onClickCard(position, newList)
         }
@@ -34,12 +38,12 @@ class NewAdapter (private var newList: ArrayList<New>, val onClickListener: onCl
     class ViewHolder(inflater: LayoutInflater, parent: ViewGroup):
         RecyclerView.ViewHolder(inflater.inflate(R.layout.item_new, parent, false)) {
 
-        private var mNameTextView = itemView.tv_title
+        private var mTitleTextView = itemView.tv_title
         private var mImageView = itemView.img_new
         private var mDescriptionTextView = itemView.tv_description
 
         fun bind(new: New) {
-            mNameTextView?.text = new.title
+            mTitleTextView?.text = new.title
             mDescriptionTextView?.text = new.description
 
             Picasso.get()
@@ -47,6 +51,11 @@ class NewAdapter (private var newList: ArrayList<New>, val onClickListener: onCl
                 .into(mImageView)
         }
 
+    }
+
+    internal fun setNews(news: ArrayList<New>){
+        this.newList = news
+        notifyDataSetChanged()
     }
 }
 
