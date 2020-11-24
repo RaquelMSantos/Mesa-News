@@ -7,7 +7,7 @@ Notícias atualizadas a cada 30 segundos e ordenadas pela data de publicação:
 O usuário poderá visualizar as listas de notícias após a sua autenticação com login e password. Ao visualizar as notícias, o usuário pode favoritar/desfavoritar, compartilhar e ver os detalhes de cada notícia.
 
 ### DONE
-####Funcionalidades
+#### Funcionalidades
 - Cadastro do usuário
 - Autenticação de acesso através do token
 - Login com Email e Password
@@ -19,21 +19,21 @@ O usuário poderá visualizar as listas de notícias após a sua autenticação 
 - Favoritar/Desfavoritar notícias
 - Possibilidade de visualização através de uma WebView
 
-####Implementações técnicas
+#### Implementações técnicas
 - Kotlin
 - Retrofit
 - MVVM
 - Navigation
 - Coroutines
 
-###TODO
+### TODO
 
-####Funcionalidades
+#### Funcionalidades
 - Possibilidade de fazer login com o Facebook
 - Filtrar notícias através da data
 - Pesquisar notícias pelo título
 
-####Implementações técnicas
+#### Implementações técnicas
 - Testes Unitários
 - Testes Instrumentados
 - Injeção de dependências
